@@ -49,7 +49,7 @@ function hmac(key, string) {
 }
 
 // Signs the policy with the credential
-function s3UploadSignature(sigConfig, policyBase64, credential) {
+function s3UploadSignature(sigConfig, policyBase64) {
   const dateKey = hmac('AWS4' + sigConfig.secretKey, dateString());
   const dateRegionKey = hmac(dateKey, sigConfig.region);
   const dateRegionServiceKey = hmac(dateRegionKey, 's3');
@@ -60,7 +60,7 @@ function s3UploadSignature(sigConfig, policyBase64, credential) {
 // Returns the parameters that must be passed to the API call
 function s3Params(pramConfig, params) {
   const credential = amzCredential(pramConfig);
-  const policy = s3UploadPolicy(pramConfig, params, credential);
+  const policy = s3UploadPolicy(pramConfig, params, amzCredential);
   const policyBase64 = new Buffer(JSON.stringify(policy)).toString('base64');
   return {
     key: params.filename,
