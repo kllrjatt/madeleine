@@ -62,16 +62,22 @@ export default class View extends Component {
       Axios.post('/api/moments', {
         moment: this.moment
       })
-      .then((res) => {
-        const {
+        .then((res) => {
+          const {
           keys,
-          media
+            media
         } = res.data.moment;
-        return Promise.map(keys, (key) => {
-          res.data.moment.media.text.s3Cred = this.cred;
-          this.setState({
-            moment: res.data.moment
+          return Promise.map(keys, (key) => {
+            res.data.moment.media.text.s3Cred = this.cred;
+            this.setState({
+              moment: res.data.moment
+            });
+            const { uri } = media[key];
+            console.log('fillleeeee', this.constructPostData(res)[0].has('key'));
+            return Axios.put(uri, this.constructPostData(res)[0]);
+            // return Axios.get(uri, this.cred);
           });
+<<<<<<< HEAD
           const { uri } = media[key];
           console.log('fillleeeee', this.constructPostData(res)[0].has('key'));
           return Axios.put(uri, this.constructPostData(res)[0]);
@@ -91,6 +97,20 @@ export default class View extends Component {
          /* eslint-disable no-console */
          console.log('got error trying to handshake: ', err));
         /* eslint-enable no-console */
+=======
+        })
+        .then((x) => {
+          console.log(x);
+          return Axios.post('/api/bktd', { moment: this.state.moment });
+        })
+        .then((y) => {
+          console.log(y);
+        })
+        .catch(err =>
+          /* eslint-disable no-console */
+          console.log('got error trying to handshake: ', err));
+      /* eslint-enable no-console */
+>>>>>>> update getters
     };
   }
 

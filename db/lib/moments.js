@@ -2,13 +2,18 @@ const models = require('../models');
 
 module.exports = {
 
+<<<<<<< HEAD
   getAllUserMoments(userID) {
     return new models.Moment().where('user_id', userID)
     .fetchAll();
+=======
+  getAllMoments(userID) {
+    return new models.Moment().where({ user_id: userID }).fetchAll();
+>>>>>>> update getters
   },
 
   getMoment(momentID) {
-    return models.Moment.where({ id: momentID }).fetch();
+    return new models.Moment().query({ where: { id: momentID } }).fetch();
   },
 
   saveMoment(momentObject) {
@@ -39,7 +44,6 @@ module.exports = {
     return models.Moment.where({
       id: momentObject.id
     }).fetch()
-    console.log('test')
       .then((uniqueMoment) => {
         uniqueMoment.save({
           display_type: momentObject.displayType,

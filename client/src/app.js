@@ -8,7 +8,7 @@ import View from './components/view';
 injectTapEventPlugin();
 
 render(
-<MuiThemeProvider>
-<View />
-</MuiThemeProvider>
-, document.getElementById('root'));
+  <MuiThemeProvider>
+    <View />
+  </MuiThemeProvider>
+  , document.getElementById('root'));
