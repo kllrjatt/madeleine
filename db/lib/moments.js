@@ -2,14 +2,9 @@ const models = require('../models');
 
 module.exports = {
 
-<<<<<<< HEAD
   getAllUserMoments(userID) {
     return new models.Moment().where('user_id', userID)
     .fetchAll();
-=======
-  getAllMoments(userID) {
-    return new models.Moment().where({ user_id: userID }).fetchAll();
->>>>>>> update getters
   },
 
   getMoment(momentID) {

@@ -77,27 +77,6 @@ export default class View extends Component {
             return Axios.put(uri, this.constructPostData(res)[0]);
             // return Axios.get(uri, this.cred);
           });
-<<<<<<< HEAD
-          const { uri } = media[key];
-          console.log('fillleeeee', this.constructPostData(res)[0].has('key'));
-          return Axios.put(uri, this.constructPostData(res)[0]);
-          // return Axios.get(uri, this.cred);
-        });
-      })
-      .then((x) => {
-        console.log(x);
-        return Axios.post('/api/bktd', { moment: this.state.moment });
-      })
-      .then((y) => {
-        console.log(y);
-        return Axios.get('api/moments', { moment: this.state.moment });
-      })
-      .then(z => console.log(z))
-      .catch(err =>
-         /* eslint-disable no-console */
-         console.log('got error trying to handshake: ', err));
-        /* eslint-enable no-console */
-=======
         })
         .then((x) => {
           console.log(x);
@@ -110,7 +89,6 @@ export default class View extends Component {
           /* eslint-disable no-console */
           console.log('got error trying to handshake: ', err));
       /* eslint-enable no-console */
->>>>>>> update getters
     };
   }
 
