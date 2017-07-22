@@ -39,6 +39,7 @@ module.exports = {
     return models.Moment.where({
       id: momentObject.id
     }).fetch()
+    console.log('test')
       .then((uniqueMoment) => {
         uniqueMoment.save({
           display_type: momentObject.displayType,
