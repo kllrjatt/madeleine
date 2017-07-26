@@ -1,11 +1,11 @@
 {
   "knex": {
-    "client": "postgres",
+    "client": "postgresql",
     "connection": {
       "database": "thesis",
       "user": "postgres",
       "password": "postgres",
-      "host": "localhost",
+      "host": "172.19.0.3",
       "port": 5432
     },
     "pool": {
@@ -27,4 +27,3 @@
     "Twitter": {}
   }
 }
-
