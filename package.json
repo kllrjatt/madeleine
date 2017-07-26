@@ -8,9 +8,12 @@
     "pomander": "curl -s https://raw.githubusercontent.com/mementologists/pomander/master/bin/install | bash",
     "start": "nodemon server",
     "test": "NODE_ENV=test grunt test",
+    "latest":"knex migrate:latest",
+    "rollback":"knex migrate:latest",
+    "seed":"knex seed:run",
     "build": "webpack --watch",
     "post-build": "webpack -p",
-    "heroku-postbuild": "yarn run post-build"
+    "dockerInit":"knex migrate:latest && knex seed:run && nodemon server"
   },
   "author": "Hack Reactor",
   "license": "MIT",
