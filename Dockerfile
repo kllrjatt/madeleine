@@ -18,6 +18,7 @@ ENV REDIS_HOST=redis
 RUN apk upgrade --update && \
     apk add --no-cache bash git openssh && \
     yarn && \
+    yarn global add grunt-cli knex && \
     yarn run post-build && \
     yarn cache clean
 

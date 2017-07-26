@@ -13,7 +13,7 @@
     "seed": "knex seed:run",
     "build": "webpack --watch",
     "post-build": "webpack -p",
-    "dockerInit": "knex migrate:latest && knex seed:run && nodemon server"
+    "dockerInit": "grunt pgcreatedb:default && knex migrate:latest && knex seed:run && nodemon server"
   },
   "author": "Hack Reactor",
   "license": "MIT",
