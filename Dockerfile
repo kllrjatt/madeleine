@@ -12,15 +12,17 @@ COPY . /public
 # Define environment variable
 ENV PORT=3000
 ENV REDIS_HOST=redis
-ENV DATABASE_URL=postgres
-
+ENV DB = postgres
 
 # Install any needed packages with yarn (should be bundled with official node image)
 RUN apk upgrade --update && \
     apk add --no-cache bash git openssh && \
     yarn && \
+     yarn global add grunt-cli knex && \
+    grunt pgcreatedb:default && \
     yarn run post-build && \
-    yarn cache clean
+   knex migrate:latest && \
+     yarn cache clean
 
 # Run when the container launches
 CMD ["yarn", "start"]

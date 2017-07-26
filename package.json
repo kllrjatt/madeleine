@@ -13,9 +13,7 @@
     "seed": "knex seed:run",
     "build": "webpack --watch",
     "post-build": "webpack -p",
-    "dockerInit": "knex migrate:latest && knex seed:run && nodemon server",
-    "migrateDB": "knex migrate:latest && knex seed:run && nodemon server",
-    "seedDB": "knex seed:run"
+    "dockerInit": "knex migrate:latest"
   },
   "author": "Hack Reactor",
   "license": "MIT",
