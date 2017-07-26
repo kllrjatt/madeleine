@@ -26,10 +26,11 @@ services:
           memory: 50M
       restart_policy:
         condition: on-failure
+    links:
+      - postgres
     ports:
       - "3000:3000"
     volumes: 
       - /var/app/current/app
     depends_on:
-      - postgres
       - redis
