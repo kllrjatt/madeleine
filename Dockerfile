@@ -12,6 +12,7 @@ COPY . /public
 # Define environment variable
 ENV PORT=3000
 ENV REDIS_HOST=redis
+ENV DB=postgres
 
 
 # Install any needed packages with yarn (should be bundled with official node image)
