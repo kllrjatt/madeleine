@@ -11,8 +11,7 @@ COPY . /public
 
 # Define environment variable
 ENV PORT=3000
-ENV REDIS_HOST=redis
-ENV REDIRECT_URI=http://localhost:3000/authenticated
+
 
 # Install any needed packages with yarn (should be bundled with official node image)
 RUN apk upgrade --update && \
@@ -25,4 +24,4 @@ RUN apk upgrade --update && \
 CMD ["yarn", "start"]
 
 # Make port 3030 available to the world outside this container
-EXPOSE 3000
+EXPOSE 3000 6379 5432
