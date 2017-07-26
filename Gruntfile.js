@@ -21,16 +21,15 @@ module.exports = function (grunt) {
     pgcreatedb: {
       default: {
         connection: {
-          user: config.connection.user,
-          password: config.connection.password,
+          user: 'postgres',
+          password: 'postgres',
           host: process.env.DB || config.connection.host,
-          port: config.connection.port,
+          port: 5432,
           database: 'template1'
         },
-        name: config.connection.database
+        name: 'thesis_devel'
       }
     }
-
   });
 
   grunt.loadNpmTasks('grunt-mocha-test');
