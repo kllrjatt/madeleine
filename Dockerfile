@@ -26,4 +26,4 @@ RUN apk upgrade --update && \
 CMD ["yarn", "start"]
 
 # Make port 3030 available to the world outside this container
-EXPOSE 3000 6379 5432
+EXPOSE 3000 6379 5432 1337 3300 27017

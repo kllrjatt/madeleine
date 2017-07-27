@@ -25,7 +25,7 @@ services:
      - "3000:3000"
     volumes:
      - .:/opt/app
-    #command: yarn run dockerInit
+    command: yarn run dockerInit
 networks:
   default:
     external:

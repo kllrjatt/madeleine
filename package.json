@@ -9,11 +9,11 @@
     "start": "nodemon server",
     "test": "NODE_ENV=test grunt test",
     "latest": "knex migrate:latest",
-    "rollback": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
     "seed": "knex seed:run",
     "build": "webpack --watch",
     "post-build": "webpack -p",
-    "dockerInit": "grunt pgcreatedb:default && knex migrate:latest && knex seed:run && nodemon server"
+    "dockerInit": "grunt pgcreatedb:default && knex migrate:rollback && knex migrate:latest && knex seed:run && nodemon server"
   },
   "author": "Hack Reactor",
   "license": "MIT",
