@@ -4,8 +4,6 @@ services:
     image: "redis:alpine"
     expose:
       - 6379
-    networks:
-      - webnet
   postgres:
     environment:
       POSTGRES_USER: postgres
@@ -16,8 +14,6 @@ services:
     image: "postgres:9.6.3"
     volumes:
       - /var/lib/postgresql/data
-    networks:
-      - webnet
   web:
     build: .
     depends_on:
@@ -25,12 +21,12 @@ services:
       - postgres
     environment:
       NODE_ENV: development
-    networks:
-      - webnet
     ports:
      - "3000:3000"
     volumes:
      - .:/opt/app
     #command: yarn run dockerInit
 networks:
-  webnet:
+  default:
+    external:
+      name: millefeuille_webnet
